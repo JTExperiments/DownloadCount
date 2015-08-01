@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14E7f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Download Count-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DashboardViewController" id="vXZ-lx-hvc" customClass="DashboardViewController" customModule="DownloadCount" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,91 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jvN-Sy-5bb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="9WG-OG-nOe" customClass="DashboardViewCell" customModule="DownloadCount" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="86" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9WG-OG-nOe" id="BBX-I8-UZW">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLu-We-G5L">
+                                                    <rect key="frame" x="16" y="11" width="45" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="count" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TqS-xq-XuA">
+                                                    <rect key="frame" x="550" y="13" width="35" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KLu-We-G5L" firstAttribute="leading" secondItem="BBX-I8-UZW" secondAttribute="leading" constant="16" id="IvK-h4-p0m"/>
+                                                <constraint firstAttribute="trailing" secondItem="TqS-xq-XuA" secondAttribute="trailing" constant="15" id="Mgj-TJ-7ZC"/>
+                                                <constraint firstItem="TqS-xq-XuA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KLu-We-G5L" secondAttribute="trailing" constant="5" id="g2A-no-2vV"/>
+                                                <constraint firstItem="TqS-xq-XuA" firstAttribute="centerY" secondItem="BBX-I8-UZW" secondAttribute="centerY" id="nea-tV-roU"/>
+                                                <constraint firstItem="KLu-We-G5L" firstAttribute="centerY" secondItem="BBX-I8-UZW" secondAttribute="centerY" id="xDG-2b-0zt"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="countLabel" destination="TqS-xq-XuA" id="lTc-ik-7kB"/>
+                                            <outlet property="nameLabel" destination="KLu-We-G5L" id="TvG-g7-tG1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="B7q-nw-tM7"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jvN-Sy-5bb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="6QV-zP-mup"/>
+                            <constraint firstItem="jvN-Sy-5bb" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="JxA-NI-QXs"/>
+                            <constraint firstAttribute="trailing" secondItem="jvN-Sy-5bb" secondAttribute="trailing" id="hWh-ot-Mb6"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="jvN-Sy-5bb" secondAttribute="bottom" id="lMl-oQ-uU2"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Download Count" id="L1e-X7-8YE">
+                        <barButtonItem key="rightBarButtonItem" title="reload" id="QH2-sc-bbc">
+                            <connections>
+                                <action selector="reloadButtonDidPress:" destination="vXZ-lx-hvc" id="cRb-Kq-rWR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="reloadButton" destination="QH2-sc-bbc" id="WIi-h0-kDA"/>
+                        <outlet property="tableView" destination="jvN-Sy-5bb" id="YC6-dn-8qb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1152" y="251"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gz3-z6-mOp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6ug-Mm-ffG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RNv-vs-Qod">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="dlJ-dA-ah1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6XT-Fg-kvR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="251"/>
         </scene>
     </scenes>
 </document>
