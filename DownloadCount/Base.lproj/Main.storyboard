@@ -68,15 +68,8 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="jvN-Sy-5bb" secondAttribute="bottom" id="lMl-oQ-uU2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Download Count" id="L1e-X7-8YE">
-                        <barButtonItem key="rightBarButtonItem" title="reload" id="QH2-sc-bbc">
-                            <connections>
-                                <action selector="reloadButtonDidPress:" destination="vXZ-lx-hvc" id="cRb-Kq-rWR"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Download Count" id="L1e-X7-8YE"/>
                     <connections>
-                        <outlet property="reloadButton" destination="QH2-sc-bbc" id="WIi-h0-kDA"/>
                         <outlet property="tableView" destination="jvN-Sy-5bb" id="YC6-dn-8qb"/>
                     </connections>
                 </viewController>

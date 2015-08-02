@@ -18,7 +18,7 @@ public extension DashboardPresenter {
 
     public func fetchSections() {
         self.interactor.fetchSections()
-        self.view.showLoading()
+        self.view.startLoading()
     }
 
     public func foundSections(sections : [DashboardSection]) {

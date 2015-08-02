@@ -12,13 +12,21 @@ import DownloadCountShared
 class DashboardViewController : UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var reloadButton: UIBarButtonItem!
+    var refreshControl : UIRefreshControl!
     var presenter : DashboardPresenter?
     var sections : [DashboardSection] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configureRefreshControl()
         self.presenter?.fetchSections()
+    }
+
+    func configureRefreshControl() {
+        let refreshControl = UIRefreshControl()
+        self.tableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: "refreshControlValueDidChange:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl = refreshControl
     }
 
     func reloadData() {
@@ -26,7 +34,8 @@ class DashboardViewController : UIViewController {
     }
 
     // MARK: Action
-    @IBAction func reloadButtonDidPress(sender: AnyObject) {
+
+    @IBAction func refreshControlValueDidChange(sender: AnyObject) {
         self.presenter?.fetchSections()
     }
 }
@@ -44,11 +53,11 @@ extension DashboardViewController : DashboardInterface {
     }
 
     func startLoading() {
-
+        self.refreshControl?.beginRefreshing()
     }
 
-    func showLoading() {
-
+    func stopLoading() {
+        self.refreshControl.endRefreshing()
     }
 }
 
