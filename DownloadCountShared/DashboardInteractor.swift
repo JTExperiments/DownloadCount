@@ -8,19 +8,15 @@
 
 import Foundation
 
-public protocol DashboardInteractorOutput {
-    func fetchSectionsFailedWithError(error: DashboardInterfaceError)
-    func foundSections(sections: [DashboardSection])
-}
+public class DashboardInteractor : DashboardInteractorInput {
+    public var output : DashboardInteractorOutput?
+    public var github : GithubDatasource
 
-public protocol DashboardInteractor {
-    var output : DashboardInteractorOutput? { get }
-    var github : GithubDatasource { get }
-}
+    public init(github: GithubDatasource) {
+        self.github = github
+    }
 
-extension DashboardInteractor {
-
-    func fetchSections() {
+    public func fetchSections() {
 
         let repos : [[String]] = [
             ["jamztang", "Today-PressKit"],
@@ -51,8 +47,6 @@ extension DashboardInteractor {
                 }
             }
         }
-
-
 
         dispatch_group_notify(_group, dispatch_get_main_queue(), { () -> Void in
             if _sections.count > 0 {

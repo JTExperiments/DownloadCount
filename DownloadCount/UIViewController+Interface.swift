@@ -9,11 +9,10 @@
 import UIKit
 import DownloadCountShared
 
-extension UIViewController : Interface  {
+extension UIViewController : Interface {
     public func showView(interface: Interface) {
         if let controller = interface as? UIViewController {
             self.presentViewController(controller, animated: true, completion: nil)
         }
     }
 }
-

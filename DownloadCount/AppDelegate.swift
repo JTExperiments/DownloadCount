@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupDependancy(window : UIWindow) {
 
         class DPresenter : DashboardPresenter {
-            var interactor : DashboardInteractor
+            var interactor : DashboardInteractorInput
             var view : DashboardInterface
             init(interactor: DashboardInteractor, view: DashboardInterface) {
                 self.interactor = interactor
@@ -38,16 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
-        class DInteractor : DashboardInteractor {
-            var output : DashboardInteractorOutput? = nil
-            var github : GithubDatasource
-            init(github: GithubDatasource) {
-                self.github = github
-            }
-        }
-
         let githubDatasource = GithubRequestController()
-        let dashboardInteractor = DInteractor(github: githubDatasource)
+        let dashboardInteractor = DashboardInteractor(github: githubDatasource)
         let dashboardWireframe = DashboardRouter()
         let dashboardViewController = dashboardWireframe.interface
         let dashboardPresenter = DPresenter(interactor: dashboardInteractor, view: dashboardViewController)

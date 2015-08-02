@@ -31,6 +31,7 @@
 		1AB51E911B6D0FE200C4255D /* DashboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB51E901B6D0FE200C4255D /* DashboardPresenter.swift */; };
 		1AB51E931B6D0FE800C4255D /* DashboardInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB51E921B6D0FE800C4255D /* DashboardInterface.swift */; };
 		1AB51E951B6D0FEF00C4255D /* DashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB51E941B6D0FEF00C4255D /* DashboardInteractor.swift */; };
+		1AF6B5AB1B6E7827004D5EA0 /* DashboardInteractorIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF6B5AA1B6E7827004D5EA0 /* DashboardInteractorIO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		1AB51E901B6D0FE200C4255D /* DashboardPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardPresenter.swift; sourceTree = "<group>"; };
 		1AB51E921B6D0FE800C4255D /* DashboardInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardInterface.swift; sourceTree = "<group>"; };
 		1AB51E941B6D0FEF00C4255D /* DashboardInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardInteractor.swift; sourceTree = "<group>"; };
+		1AF6B5AA1B6E7827004D5EA0 /* DashboardInteractorIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardInteractorIO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,17 +229,9 @@
 			isa = PBXGroup;
 			children = (
 				1AB51E661B6D038200C4255D /* DownloadCountShared.h */,
-				1A91C7FE1B6D28D600F0C810 /* GithubDatasource.swift */,
-				1AB51E8A1B6D085300C4255D /* GithubRequestController.swift */,
-				1AB51E8C1B6D0D0300C4255D /* Github.swift */,
-				1AB51E641B6D038200C4255D /* Supporting Files */,
 				1A91C8041B6D2E1000F0C810 /* Interface.swift */,
-				1AB51E901B6D0FE200C4255D /* DashboardPresenter.swift */,
-				1A91C8001B6D2BDA00F0C810 /* DashboardWireframe.swift */,
-				1AB51E921B6D0FE800C4255D /* DashboardInterface.swift */,
-				1AB51E941B6D0FEF00C4255D /* DashboardInteractor.swift */,
-				1A91C8021B6D2DA400F0C810 /* DashboardItem.swift */,
-				1A91C80E1B6D499900F0C810 /* DashboardSection.swift */,
+				1AF6B5A91B6E7707004D5EA0 /* Dashboard */,
+				1AB51E641B6D038200C4255D /* Supporting Files */,
 			);
 			path = DownloadCountShared;
 			sourceTree = "<group>";
@@ -265,6 +259,23 @@
 				1AB51E741B6D038200C4255D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1AF6B5A91B6E7707004D5EA0 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				1A91C7FE1B6D28D600F0C810 /* GithubDatasource.swift */,
+				1AB51E8A1B6D085300C4255D /* GithubRequestController.swift */,
+				1AB51E8C1B6D0D0300C4255D /* Github.swift */,
+				1AB51E901B6D0FE200C4255D /* DashboardPresenter.swift */,
+				1A91C8001B6D2BDA00F0C810 /* DashboardWireframe.swift */,
+				1AB51E921B6D0FE800C4255D /* DashboardInterface.swift */,
+				1AB51E941B6D0FEF00C4255D /* DashboardInteractor.swift */,
+				1AF6B5AA1B6E7827004D5EA0 /* DashboardInteractorIO.swift */,
+				1A91C8021B6D2DA400F0C810 /* DashboardItem.swift */,
+				1A91C80E1B6D499900F0C810 /* DashboardSection.swift */,
+			);
+			name = Dashboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,6 +473,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AB51E951B6D0FEF00C4255D /* DashboardInteractor.swift in Sources */,
+				1AF6B5AB1B6E7827004D5EA0 /* DashboardInteractorIO.swift in Sources */,
 				1A91C8051B6D2E1000F0C810 /* Interface.swift in Sources */,
 				1A91C80F1B6D499900F0C810 /* DashboardSection.swift in Sources */,
 				1AB51E931B6D0FE800C4255D /* DashboardInterface.swift in Sources */,

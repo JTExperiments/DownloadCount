@@ -8,9 +8,8 @@
 
 import Foundation
 
-
 public protocol DashboardPresenter : DashboardInteractorOutput {
-    var interactor : DashboardInteractor { get }
+    var interactor : DashboardInteractorInput { get }
     var view : DashboardInterface { get }
 }
 
