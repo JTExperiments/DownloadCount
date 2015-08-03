@@ -9,5 +9,8 @@
 import Foundation
 
 public protocol DashboardWireframe {
+    var presenter : DashboardPresenter? { get }
+//    func view() -> Interface
     func showDashboardFromView(view: Interface)
+    func showAddFromView(view: Interface)
 }

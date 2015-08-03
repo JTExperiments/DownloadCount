@@ -10,4 +10,5 @@ import Foundation
 
 public protocol Interface {
     func showView(interface: Interface)
+    func dismiss()
 }

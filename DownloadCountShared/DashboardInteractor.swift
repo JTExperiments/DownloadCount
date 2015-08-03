@@ -11,17 +11,19 @@ import Foundation
 public class DashboardInteractor : DashboardInteractorInput {
     public var output : DashboardInteractorOutput?
     public var github : GithubDatasource
+    public var source : SourceDataManager
 
-    public init(github: GithubDatasource) {
+    public init(github: GithubDatasource, source: SourceDataManager) {
         self.github = github
+        self.source = source
     }
 
     public func fetchSections() {
 
-        let repos : [[String]] = [
-            ["jamztang", "Today-PressKit"],
-            ["jamztang", "MagicMirror.sketchplugin"],
-        ]
+        let sources : [Source] = source.getSources() ?? []
+        let repos : [[String]] = sources.map { (source:Source) -> [String] in
+            return [source.owner, source.name]
+        }
 
         let _group = dispatch_group_create()
         var _error : DashboardInterfaceError? = nil

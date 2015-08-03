@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8121.17" systemVersion="14E7f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14E7f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Download Count-->
@@ -68,7 +69,13 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="jvN-Sy-5bb" secondAttribute="bottom" id="lMl-oQ-uU2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Download Count" id="L1e-X7-8YE"/>
+                    <navigationItem key="navigationItem" title="Download Count" id="L1e-X7-8YE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cRP-71-kBM">
+                            <connections>
+                                <action selector="addButtonDidPress:" destination="vXZ-lx-hvc" id="TJX-eS-vW5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="jvN-Sy-5bb" id="YC6-dn-8qb"/>
                     </connections>
@@ -76,6 +83,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1152" y="251"/>
+        </scene>
+        <!--Add Source-->
+        <scene sceneID="jS4-bu-D1i">
+            <objects>
+                <viewController storyboardIdentifier="AddViewController" id="X1y-3j-K83" customClass="AddViewController" customModule="DownloadCount" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="D3U-Zn-WO7"/>
+                        <viewControllerLayoutGuide type="bottom" id="YDM-TH-aG1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IRe-tr-rbq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="repository name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xaZ-rQ-9UC">
+                                <rect key="frame" x="30" y="134" width="541" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="owner" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4Y-eV-i64">
+                                <rect key="frame" x="30" y="89" width="541" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xaZ-rQ-9UC" firstAttribute="top" secondItem="a4Y-eV-i64" secondAttribute="bottom" constant="15" id="3aq-hR-Mnb"/>
+                            <constraint firstItem="xaZ-rQ-9UC" firstAttribute="trailing" secondItem="a4Y-eV-i64" secondAttribute="trailing" id="3bo-zf-y22"/>
+                            <constraint firstItem="xaZ-rQ-9UC" firstAttribute="leading" secondItem="a4Y-eV-i64" secondAttribute="leading" id="U0H-Gp-kuI"/>
+                            <constraint firstItem="a4Y-eV-i64" firstAttribute="top" secondItem="D3U-Zn-WO7" secondAttribute="bottom" constant="25" id="mbX-Nn-D9I"/>
+                            <constraint firstItem="a4Y-eV-i64" firstAttribute="leading" secondItem="IRe-tr-rbq" secondAttribute="leadingMargin" constant="10" id="o6K-gw-bke"/>
+                            <constraint firstItem="a4Y-eV-i64" firstAttribute="centerX" secondItem="IRe-tr-rbq" secondAttribute="centerX" id="wmT-KV-6PV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Source" id="7Qx-l8-DX0">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="8FH-OM-wHP">
+                            <connections>
+                                <action selector="cancelButtonDidPress:" destination="X1y-3j-K83" id="D15-v1-Gul"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="9F9-iv-gd5">
+                            <connections>
+                                <action selector="doneButtonDidPress:" destination="X1y-3j-K83" id="8IT-Lr-SKW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="ownerTextField" destination="a4Y-eV-i64" id="ySH-Ci-TQH"/>
+                        <outlet property="repositoryNameTextField" destination="xaZ-rQ-9UC" id="yxA-HC-Gp3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Atv-vf-W5u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2576" y="251"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gz3-z6-mOp">
@@ -94,6 +155,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6XT-Fg-kvR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="340" y="251"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nR0-8r-y0z">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W7E-D7-c9D" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vqp-i0-plX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="X1y-3j-K83" kind="relationship" relationship="rootViewController" id="HP1-MQ-mSs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fTT-jl-z9p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1832" y="251"/>
         </scene>
     </scenes>
 </document>

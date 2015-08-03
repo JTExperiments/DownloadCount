@@ -52,7 +52,7 @@ public class GithubRequestController : GithubDatasource {
                 completion(nil, Github.Error(error: error))
             })
         }
-        task!.resume()
+        task.resume()
     }
     
 }

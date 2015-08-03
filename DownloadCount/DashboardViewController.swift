@@ -34,6 +34,9 @@ class DashboardViewController : UIViewController {
     }
 
     // MARK: Action
+    @IBAction func addButtonDidPress(sender: AnyObject) {
+        self.presenter?.addButtonDidPress()
+    }
 
     @IBAction func refreshControlValueDidChange(sender: AnyObject) {
         self.presenter?.fetchSections()

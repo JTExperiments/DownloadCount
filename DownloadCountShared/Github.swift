@@ -17,6 +17,27 @@ public struct Github {
         }
     }
 
+    public struct Repository {
+
+        public struct Identifier {
+            let owner : String
+            let name : String
+
+            public init(owner: String, name: String) {
+                self.owner = owner
+                self.name = name
+            }
+
+            public func toSource() -> Source {
+                let source = Source()
+                source.owner = self.owner
+                source.name = self.name
+                return source
+            }
+        }
+
+    }
+
     public struct Release {
 
         let name : String!
